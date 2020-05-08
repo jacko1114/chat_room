@@ -1,27 +1,50 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import Create from "../views/Create.vue";
+import Friend from "../views/Friend.vue";
+import Chat from "../views/Chat.vue";
+import User from "../views/User.vue";
+import Setting from "../views/Setting.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-  const routes = [
+const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    components: { left: Home, Right: Setting },
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+    path: "/create",
+    name: "Create",
+    components: { Left: Create, Right: Setting },
+  },
+  {
+    path: "/friend",
+    name: "Friend",
+    components: { Left: Friend, Right: Setting },
+  },
+  {
+    path: "/chat",
+    name: "Chat",
+    components: { Left: Chat, Right: Setting },
+  },
+  {
+    path: "/user",
+    name: "User",
+    components: { Left: User, Right: Setting },
+  },
+  {
+    path: "/setting",
+    name: "Setting",
+    components: { Left: Create, Right: Setting },
+  },
+];
 
 const router = new VueRouter({
-  routes
-})
+  linkActiveClass: "active",
+  routes,
+});
 
-export default router
+export default router;

@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>施工中</h1>
-  </div>
+  <div></div>
 </template>
 <script>
 export default {
