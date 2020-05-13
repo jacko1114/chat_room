@@ -13,36 +13,37 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    components: { left: Home, Right: Setting },
+    component: Home,
   },
   {
     path: "/create",
     name: "Create",
-    components: { Left: Create, Right: Setting },
+    component: Create,
   },
   {
     path: "/friend",
     name: "Friend",
-    components: { Left: Friend, Right: Setting },
+    component: Friend,
   },
   {
     path: "/chat",
     name: "Chat",
-    components: { Left: Chat, Right: Setting },
+    component: Chat,
   },
   {
     path: "/user",
     name: "User",
-    components: { Left: User, Right: Setting },
+    component: User,
   },
   {
     path: "/setting",
     name: "Setting",
-    components: { Left: Create, Right: Setting },
+    component: { Setting },
   },
 ];
 
 const router = new VueRouter({
+  mode: "history",
   linkActiveClass: "active",
   routes,
 });

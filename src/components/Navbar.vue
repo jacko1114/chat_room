@@ -13,9 +13,9 @@
       </router-link>
     </div>
     <div class="setting">
-      <router-link :to="{path:'/' + setting.name}">
+      <a href="javascript:;" @click="view='Setting'">
         <i :class="setting.icon"></i>
-      </router-link>
+      </a>
     </div>
   </div>
 </template>
@@ -44,7 +44,7 @@ export default {
   bottom: 0;
   width: 100vw;
   height: 80px;
-  z-index: 10;
+  z-index: 900;
   background: #333;
   display: flex;
   justify-content: space-between;
@@ -95,6 +95,7 @@ export default {
     flex: 1;
     padding-left: 5%;
     padding-right: 2%;
+    padding-bottom: 20px;
   }
 }
 @media (min-width: 1024px) {

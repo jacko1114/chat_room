@@ -3,19 +3,31 @@
     <Navbar></Navbar>
     <div class="main-view">
       <transition name="fade" mode="out-in">
-        <router-view class="left" name="Left"></router-view>
+        <router-view></router-view>
       </transition>
-      <router-view class="right" name="Right"></router-view>
+      <div :is="view" class="main-right" @click="openMenu()"></div>
     </div>
   </div>
 </template>
 <script>
 import Navbar from "@/components/Navbar";
+import Setting from "@/views/Setting";
 
 export default {
   name: "app",
   components: {
-    Navbar
+    Navbar,
+    Setting
+  },
+  data() {
+    return {
+      view: "Setting"
+    };
+  },
+  methods: {
+    openMenu() {
+      this.$emit("open", false);
+    }
   }
 };
 </script>
@@ -34,13 +46,8 @@ $dark: #333;
   }
   .main-view {
     display: flex;
-    position: relative;
-  }
-  .left {
-    width: 100vw;
-  }
-  .right {
-    width: 100vw;
+    background: #333;
+    height: 100vh;
   }
   .fade-enter,
   .fade-leave-to {

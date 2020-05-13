@@ -1,27 +1,33 @@
 <template>
-  <div id="create-button">
-    <button>{{name}}</button>
+  <div id="logout-button">
+    <button>
+      <span>{{button.name}}</span>
+      <i :class="button.icon"></i>
+    </button>
   </div>
 </template>
 <script>
 export default {
+  components: {},
   data() {
-    return { name: "創建群組" };
+    return {
+      button: { name: "登出", icon: "fas fa-sign-out-alt" }
+    };
   }
 };
 </script>
 <style lang='scss' scoped>
-#create-button {
-  position: fixed;
+#logout-button {
   bottom: 80px;
   width: 100%;
   height: 70px;
   background: #474444;
   button {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     width: calc(100% - 40px);
     color: #fff;
-    background: #1b6de9;
+    background: #333;
     padding: 15px;
     border-radius: 5px;
     outline: 0;
@@ -30,16 +36,10 @@ export default {
     letter-spacing: 3px;
     font-size: 15px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.2s;
     &:hover {
-      background: #0c56c5;
+      background: #222;
     }
-  }
-}
-@media (min-width: 1024px) {
-  #create-button {
-    bottom: 0;
-    width: 430px;
   }
 }
 </style>
